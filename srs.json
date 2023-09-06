@@ -20,7 +20,7 @@
         "^[a-z_]+$": {
           "type": "object",
           "properties": {
-            "prefix": {"type": "string"}
+            "format": {"type": "string"}
           },
           "additionalProperties": false
         }

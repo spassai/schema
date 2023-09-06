@@ -20,7 +20,7 @@
         "^[a-z_]+$": {
           "type": "object",
           "properties": {
-            "format": {"type": "string"}
+            "sequence_format": {"type": "string"}
           },
           "additionalProperties": false
         }

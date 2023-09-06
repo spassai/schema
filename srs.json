@@ -20,7 +20,7 @@
         "^[a-z_]+$": {
           "type": "object",
           "properties": {
-            "sequence_format": {"type": "string"}
+            "sequence_pattern": {"type": "string"}
           },
           "additionalProperties": false
         }
@@ -43,7 +43,14 @@
             "functional"
           ]
         },
-        "categories": {"$ref": "#/$defs/list_of_strings"},
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "uniqueItems": true
+        },
         "name": {"type": "string"},
         "description": {"type": "string"}
       },

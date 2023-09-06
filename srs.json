@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "srs.yaml",
+  "type": "object",
+  "title": "Software Requirements Specification",
+  "description": "",
+  "properties": {
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "#/$defs/requirement"
+      },
+      "description": "software requirements.",
+      "additionalProperties": false
+    },
+    "groups": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z_]+$": {
+          "type": "object",
+          "properties": {
+            "prefix": {"type": "string"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "description": "requirement groups.",
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "requirement": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string", "format": "uuid"},
+        "group": {
+          "type": "string",
+          "enum": [
+            "ui",
+            "performance",
+            "non_functional",
+            "functional"
+          ]
+        },
+        "categories": {"$ref": "#/$defs/list_of_strings"},
+        "name": {"type": "string"},
+        "description": {"type": "string"}
+      },
+      "required": ["id", "group", "name"]
+    },
+    "list_of_strings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": ["requirements", "groups"],
+  "additionalProperties": false
+}

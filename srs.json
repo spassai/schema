@@ -58,6 +58,6 @@
       "uniqueItems": true
     }
   },
-  "required": ["requirements", "groups"],
+  "required": ["requirements"],
   "additionalProperties": false
 }

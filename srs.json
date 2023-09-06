@@ -47,7 +47,8 @@
         "name": {"type": "string"},
         "description": {"type": "string"}
       },
-      "required": ["id", "group", "name"]
+      "required": ["id", "group", "name"],
+      "additionalProperties": false
     },
     "list_of_strings": {
       "type": "array",
